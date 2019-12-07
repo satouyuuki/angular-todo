@@ -1,0 +1,11 @@
+<div *ngIf="appendtodo">
+    <h2>
+        {{appendtodo.name | uppercase}} Details
+    </h2>
+    <div>
+        <label>name:
+            <input [(ngModel)]="appendtodo.name">
+        </label>
+    </div>
+    <button (click)="goBack()">戻る</button>
+</div>

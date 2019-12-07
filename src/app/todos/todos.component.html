@@ -1,0 +1,32 @@
+<h2>TODO アプリ</h2>
+<div>
+    <!-- <input [(ngModel)]="todo.name"> -->
+    <button>追加</button>
+</div>
+<div>
+    <ul>
+        <li *ngFor="let item of todoItems" 
+        (click)="onSelect(item)"
+        [class.selected]="item === selectItem">
+            <a routerLink="/detail/{{item.id}}">
+                <span>
+                    No. {{item.id}}
+                </span>
+                <span>
+                    Title: {{item.name}}
+                </span>
+            </a>
+        </li>
+    </ul>
+</div>
+<app-todo-detail [appendtodo]="selectItem"></app-todo-detail>
+<!-- <div *ngIf="selectItem">
+    <h2>
+        {{selectItem.name | uppercase}} Details
+    </h2>
+    <div>
+        <label>name: 
+            <input [(ngModel)]="selectItem.name">
+        </label>
+    </div>
+</div> -->
