@@ -1,3 +1,4 @@
+// ITEMSはもうhttpclientに置き換わった
 import { Todo } from './todo';
 
 export const ITEMS: Todo[] = [

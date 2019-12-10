@@ -1,12 +1,14 @@
 <h2>TODO アプリ</h2>
 <div>
-    <!-- <input [(ngModel)]="todo.name"> -->
-    <button>追加</button>
+    <label>Todo name:
+        <input #todoName>
+    </label>
+    <button (click)="add(todoName.value); todoName.value=''">追加</button>
 </div>
 <div>
     <ul>
+        <!-- (click)="onSelect(item)" -->
         <li *ngFor="let item of todoItems" 
-        (click)="onSelect(item)"
         [class.selected]="item === selectItem">
             <a routerLink="/detail/{{item.id}}">
                 <span>
@@ -16,6 +18,10 @@
                     Title: {{item.name}}
                 </span>
             </a>
+            <button class="delete" title="delete item"
+            (click)="delete(item)">
+                x
+            </button>
         </li>
     </ul>
 </div>

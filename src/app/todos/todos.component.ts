@@ -36,4 +36,16 @@ export class TodosComponent implements OnInit {
     this.todoService.getTodos()
       .subscribe(hoges => this.todoItems = hoges)
   }
+  add(name: string):void {
+    name = name.trim();
+    if(!name) {return;}
+    this.todoService.addTodo({ name } as Todo)
+      .subscribe(hogehoge => {
+        this.todoItems.push(hogehoge);
+      });
+  }
+  delete(item: Todo):void {
+    this.todoItems = this.todoItems.filter(h => h !== item);
+    this.todoService.deleteTodo(item).subscribe();
+  }
 }
